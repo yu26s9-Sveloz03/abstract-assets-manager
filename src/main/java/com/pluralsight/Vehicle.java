@@ -1,26 +1,32 @@
 package com.pluralsight;
 
-public class Vehicle extends House{
+public class Vehicle extends Asset{
 
     private String makeModel;
     private int year;
     private int odometer;
 
-    public Vehicle () {}
+    public Vehicle (String description, String dateAquired, double originalCost, String makeModel, int year, int odometer) {
+        super(description,dateAquired,originalCost);
+        this.makeModel = makeModel;
+        this.year = year;
+        this.odometer = odometer;
+    }
 
     @Override
     public double getValue() {
+        int age = 2026 - getYear();
         double value = getOriginalCost();
-        if (getYear() >= 0 && getYear() <= 3) {
-            for (int i = 0; i < getYear(); i++) {
+        if (age >= 0 && age <= 3) {
+            for (int i = 0; i < age; i++) {
                 value *= 00.97;
             }
-        } else if (getYear() >= 4 && getYear() <= 6) {
-            for (int i = 0; i < getYear(); i++) {
+        } else if (age >= 4 && age <= 6) {
+            for (int i = 0; i < age; i++) {
                 value *= 00.94;
             }
-        } else if (getYear() >= 7 && getYear() <= 10) {
-            for (int i = 0; i < getYear(); i++) {
+        } else if (age >= 7 && age <= 10) {
+            for (int i = 0; i < age; i++) {
                 value *= 00.92;
             }
         } else {

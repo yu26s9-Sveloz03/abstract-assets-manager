@@ -8,7 +8,13 @@ public class House extends Asset{
     private int squareFoot;
     private int lotSize;
 
-    public House() {}
+    public House(String description, String dateAcquired, double originalCost, String address, int condition, int squareFoot, int lotSize) {
+        super(description, dateAcquired, originalCost);
+        this.address = address;
+        this.condition = condition;
+        this.squareFoot = squareFoot;
+        this.lotSize = lotSize;
+    }
 
     @Override
     public double getValue() {
